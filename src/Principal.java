@@ -35,7 +35,7 @@ public class Principal {
 				String [] trans = fun[1].split(",");
 				int indice=encontrar(operadores[0]);
 				for(int i = 0; i<trans.length;i++){
-					estados[indice].transiciones[(operadores[1].charAt(0)-'a')].add(estados[encontrar(trans[i])]);
+					((ArrayList<EstadoND>) estados[indice].transiciones[(operadores[1].charAt(0)-'a')]).add(estados[encontrar(trans[i])]);
 				}
 			}
 			estadoAFD(estadoInicial);
