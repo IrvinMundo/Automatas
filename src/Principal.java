@@ -10,21 +10,12 @@ public class Principal {
 	static String[] edosFinales; //Conjunto de estados fianles, line 3
 	static EstadoND [] estados ;
 
-<<<<<<< HEAD
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("si sirvio el commit");
 		//Comentario
-		/*
-		 * Source Tree estaba más chido
-		 * Esperemos que a Alfred no se le trabe.
-		 * #EstáFácilInstalarlo
-		 * #MañanaTeAyudo
-		 * En SourceTree también lo puedes hacer por línea de comando.
-		 */
+		
 	}
-=======
->>>>>>> refs/remotes/origin/mundo
 
 	public static void main(){
 		File file = new File("AFNDlmd.txt");
