@@ -10,6 +10,7 @@ public class Principal {
 		 * Esperemos que a Alfred no se le trabe.
 		 * #EstáFácilInstalarlo
 		 * #MañanaTeAyudo
+		 * En SourceTree también lo puedes hacer por línea de comando.
 		 */
 	}
 
