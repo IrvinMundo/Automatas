@@ -5,6 +5,12 @@ public class Principal {
 		// TODO Auto-generated method stub
 		System.out.println("si sirvio el commit");
 		//Comentario
+		/*
+		 * Source Tree estaba más chido
+		 * Esperemos que a Alfred no se le trabe.
+		 * #EstáFácilInstalarlo
+		 * #MañanaTeAyudo
+		 */
 	}
 
 }
