@@ -5,30 +5,32 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Main {
+public class Main<T> {
+	static ArrayList<GLC> gramaticas = new ArrayList<GLC>();
+	//Primer renglón
+	static String alfabetoDePila="";
+	//Primer renglón separado
+	static String[]simbolosNT; //A,B
+	
+	//Segundo renglón
+	static String alfabetoDeEntrada="";
+	//Segundo renglón separado
+	static String[]simbolosT; //a,b
+	
+	//Tercer renglón
+	static String simboloNTI=""; //S
+	
+	//Cuarto renglón
+	//S->aS S->aA etc
+	static ArrayList<String> lineasDelTXT = new ArrayList<String>();
+	static ArrayList<AP> automatasDePila = new ArrayList<AP>();
+	
+	//Símbolos terminales que salen de q0
+	static String[] simbolosTQ0;
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		File file = new File("GLC.txt");
-		ArrayList<GLC> gramaticas = new ArrayList<GLC>();
-		//Primer renglón
-		String alfabetoDePila="";
-		//Primer renglón separado
-		String[]simbolosNT; //A,B
-		
-		//Segundo renglón
-		String alfabetoDeEntrada="";
-		//Segundo renglón separado
-		String[]simbolosT; //a,b
-		
-		//Tercer renglón
-		String simboloNTI=""; //S
-		
-		//Cuarto renglón
-		//S->aS S->aA etc
-		ArrayList<String> lineasDelTXT = new ArrayList<String>();
-		ArrayList<AP> automatasDePila = new ArrayList<AP>();
-		
 		
 		try {	
 			@SuppressWarnings("resource")
@@ -123,6 +125,7 @@ public class Main {
 					int contador = 0;
 					String simboloAlf="";
 					String simboloPil="";
+					simbolosTQ0 = new String[letras.length];
 					while(contador < letras.length){
 						char c = letras[contador].charAt(0);
 						boolean b = mayusculaMinuscula(c);
@@ -184,6 +187,9 @@ public class Main {
 		String cadena = 
 		JOptionPane.showInputDialog("Por favor, dame una cadena y te diré si es aceptada");
 		String [] letrasCadena = cadena.split("");
+		
+		AP pila = new AP();
+		JOptionPane.showInputDialog(pila.recorrerAP(letrasCadena, simbolosT.length, simbolosT));
 	}
 	
 	//mayuscula true, minuscula false
