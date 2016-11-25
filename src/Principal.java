@@ -17,10 +17,12 @@ public class Principal {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void main(){
 		File file = new File("AFNDlmd.txt");
 
 		try {
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(file);
 			conjEdos = sc.nextLine().split(",");
 			alfabeto =sc.nextLine().split(",");
