@@ -119,7 +119,7 @@ public class Principal<T> {
 				for(int j = 0; j < g.trans.size();j++){
 					
 					ap = new AP();
-					ap.nombre = "q0";
+					ap.estadoInicial = "q0";
 					ap.simboloPilaQueSale = "lmd";
 					String transicion = g.trans.get(j);
 					String letras[] = transicion.split("");
@@ -144,17 +144,17 @@ public class Principal<T> {
 					ap.simboloPilaQueEntra = simboloPil;
 					ap.simboloAlfabeto=simboloAlf;
 					if(simboloPil == "lmd"){
-						ap.estado = "q0";
+						ap.estadoSiguiente = "q0";
 					}else{
-						ap.estado = "q1";
+						ap.estadoSiguiente = "q1";
 					}
 					automatasDePila.add(ap);
 				}
 			}else{
 				for(int j = 0; j < g.trans.size();j++){
 					ap = new AP();
-					ap.nombre = "q1";
-					ap.estado = "q1";
+					ap.estadoInicial = "q1";
+					ap.estadoSiguiente = "q1";
 					ap.simboloPilaQueSale = g.letra;
 					
 					String transicion = g.trans.get(j);
