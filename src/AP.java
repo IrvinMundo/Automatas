@@ -21,12 +21,20 @@ public class AP<T> {
 		pila = new Pila(letrasCadena.length);
 		int contador = 0;
 		String esdoActual = ap.estadoInicial[0];
-		boolean proseguir = false;
+		String simboloTrans = "";
+		boolean proseguir = false, transEncontrada = false;
+		//contador = 0 es q0, contador = 1 es q1
 		if(contador == 0){
-			//ver si están todas las letras en los dos estados
+			
+			if(){
+				
+			}
+			
+			//ver el simbTerminal para hacer la trnsición entre estados
 			for(int i=0; i<ap.estadoInicial.length; i++){
-				if(ap.estadoInicial[i] == "q1") {
-					
+				if(ap.estadoInicial[i] == "q0" && ap.estadoSiguiente[i+1] == "q1" && !transEncontrada) {
+					simboloTrans = ap.simboloAlfabeto[i];
+					transEncontrada = true;
 				}
 			}
 			
