@@ -20,7 +20,7 @@ public class AP<T> {
 	public String recorrerAP(String[] letrasCadena, AP ap){
 		pila = new Pila(letrasCadena.length);
 		int contador = 0;
-		String esdoActual = ap.estadoSiguiente[0];
+		String esdoActual = ap.estadoInicial[0];
 		boolean proseguir = false;
 		if(contador == 0){
 			//Comparar con los simbolosT que salen de q0
