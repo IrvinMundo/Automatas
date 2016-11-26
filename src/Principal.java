@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Main<T> {
+public class Principal<T> {
 	static ArrayList<GLC> gramaticas = new ArrayList<GLC>();
 	//Primer renglón
 	static String alfabetoDePila="";

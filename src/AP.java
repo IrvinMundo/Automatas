@@ -42,8 +42,8 @@ public class AP<T> {
 		boolean proseguir = false;
 		if(contador == 0){
 			//Comparar con los simbolosT que salen de q0
-			for(int i = 0; i < Main.simbolosTQ0.length; i++){
-				if(letrasCadena[contador] == Main.simbolosTQ0[i]){
+			for(int i = 0; i < Principal.simbolosTQ0.length; i++){
+				if(letrasCadena[contador] == Principal.simbolosTQ0[i]){
 					proseguir = true;
 				}
 			}
