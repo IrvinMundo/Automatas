@@ -1,9 +1,0 @@
-A,B
-a,b
-S
-S->aS
-S->aA
-A->aAB
-A->a
-B->b
-B->lmd
