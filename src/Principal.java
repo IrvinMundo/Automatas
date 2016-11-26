@@ -27,6 +27,7 @@ public class Principal<T> {
 	
 	//
 	static AP revisarCadena = new AP();
+	static AP ap;
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
@@ -117,7 +118,7 @@ public class Principal<T> {
 			if(g.letra.equals(simboloNTI)){
 				for(int j = 0; j < g.trans.size();j++){
 					
-					AP ap = new AP();
+					ap = new AP();
 					ap.nombre = "q0";
 					ap.simboloPilaQueSale = "lmd";
 					String transicion = g.trans.get(j);
@@ -151,7 +152,7 @@ public class Principal<T> {
 				}
 			}else{
 				for(int j = 0; j < g.trans.size();j++){
-					AP ap = new AP();
+					ap = new AP();
 					ap.nombre = "q1";
 					ap.estado = "q1";
 					ap.simboloPilaQueSale = g.letra;
@@ -189,7 +190,7 @@ public class Principal<T> {
 		JOptionPane.showInputDialog("Por favor, dame una cadena y te diré si es aceptada");
 		String [] letrasCadena = cadena.split("");
 		
-		JOptionPane.showMessageDialog(null, revisarCadena.recorrerAP(letrasCadena, automatasDePila));
+		JOptionPane.showMessageDialog(null, revisarCadena.recorrerAP(letrasCadena, ap));
 	}
 	
 	//mayuscula true, minuscula false
