@@ -25,11 +25,8 @@ public class Principal<T> {
 	static ArrayList<String> lineasDelTXT = new ArrayList<String>();
 	static ArrayList<AP> automatasDePila = new ArrayList<AP>();
 	
-	//Pila
-	static AP aPila = new AP();
-	
-	//Símbolos terminales que salen de q0
-	static String[] simbolosTQ0;
+	//
+	static AP revisarCadena = new AP();
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
@@ -122,13 +119,13 @@ public class Principal<T> {
 					
 					AP ap = new AP();
 					ap.nombre = "q0";
-					ap.simboloPila = "lmd";
+					ap.simboloPilaQueSale = "lmd";
 					String transicion = g.trans.get(j);
 					String letras[] = transicion.split("");
 					int contador = 0;
 					String simboloAlf="";
 					String simboloPil="";
-					simbolosTQ0 = new String[letras.length];
+					
 					while(contador < letras.length){
 						char c = letras[contador].charAt(0);
 						boolean b = mayusculaMinuscula(c);
@@ -143,7 +140,7 @@ public class Principal<T> {
 						}
 						contador++;
 					}
-					ap.simboloPila2 = simboloPil;
+					ap.simboloPilaQueEntra = simboloPil;
 					ap.simboloAlfabeto=simboloAlf;
 					if(simboloPil == "lmd"){
 						ap.estado = "q0";
@@ -157,7 +154,8 @@ public class Principal<T> {
 					AP ap = new AP();
 					ap.nombre = "q1";
 					ap.estado = "q1";
-					ap.simboloPila = g.letra;
+					ap.simboloPilaQueSale = g.letra;
+					
 					String transicion = g.trans.get(j);
 					String letras[] = transicion.split("");
 					int contador = 0;
@@ -176,7 +174,7 @@ public class Principal<T> {
 					if(simboloPil==""){
 						simboloPil = "lmd";
 					}
-					ap.simboloPila2 = simboloPil;
+					ap.simboloPilaQueEntra = simboloPil;
 					ap.simboloAlfabeto=simboloAlf;				
 					automatasDePila.add(ap);				
 				}
@@ -191,7 +189,7 @@ public class Principal<T> {
 		JOptionPane.showInputDialog("Por favor, dame una cadena y te diré si es aceptada");
 		String [] letrasCadena = cadena.split("");
 		
-		JOptionPane.showInputDialog(aPila.recorrerAP(letrasCadena, simbolosT.length, simbolosT));
+		JOptionPane.showMessageDialog(null, revisarCadena.recorrerAP(letrasCadena, automatasDePila));
 	}
 	
 	//mayuscula true, minuscula false
