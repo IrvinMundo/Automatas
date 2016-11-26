@@ -27,7 +27,7 @@ public class AP<T> {
 		if(contador == 0){
 			
 			if(true){
-				
+				//
 			}
 			
 			//ver el simbTerminal para hacer la trnsición entre estados
