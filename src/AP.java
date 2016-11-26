@@ -26,7 +26,7 @@ public class AP<T> {
 		//contador = 0 es q0, contador = 1 es q1
 		if(contador == 0){
 			
-			if(){
+			if(true){
 				
 			}
 			
