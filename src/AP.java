@@ -1,4 +1,4 @@
-//hola
+
 public class AP<T> {
 	String nombre;
 	String simboloAlfabeto;
@@ -17,9 +17,9 @@ public class AP<T> {
 	}
 	
 	public int[] verificarNumDeLetras(String[] letrasCadena, int cantidadDeSimbolos){
-		/* quiero saber el nï¿½m de repeticiones de c/sï¿½mbolo terminal
+		/* quiero saber el núm de repeticiones de c/símbolo terminal
 		 * para saber cuantas veces lo llamo
-		 * y a partir de cuando empiezo a poner fin a la recursiï¿½n
+		 * y a partir de cuando empiezo a poner fin a la recursión
 		 */
 		int[] numLetras = new int[cantidadDeSimbolos];
 		for(int i=0; i<letrasCadena.length;i++){
@@ -39,19 +39,19 @@ public class AP<T> {
 		int contador = 0;
 		int[] cantidad = verificarNumDeLetras(letrasCadena, simbolosT);
 		String esdoActual = "q0";
-		boolean siProsigue = false;
+		boolean proseguir = false;
 		if(contador == 0){
 			//Comparar con los simbolosT que salen de q0
-			for(int i = 0; i < Main.simbolosTQ0.length; i++){
-				if(letrasCadena[contador] == Main.simbolosTQ0[i]){
-					siProsigue = true;
+			for(int i = 0; i < Principal.simbolosTQ0.length; i++){
+				if(letrasCadena[contador] == Principal.simbolosTQ0[i]){
+					proseguir = true;
 				}
 			}
-			if(siProsigue != true){
-				return "La cadena es invï¿½lida";
+			if(proseguir != true){
+				return "La cadena es inválida";
 			}else{
-				//Se empezarï¿½ a llenar la pila
-				//Y ver cuï¿½ntos sï¿½mbolosT iguales hay juntos
+				//Se empezará a llenar la pila (y una pequeña trampa)
+				//Y ver cuántos símbolosT iguales hay juntos
 				
 			}
 		}else{

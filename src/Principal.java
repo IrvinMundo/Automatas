@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Main<T> {
+public class Principal<T> {
 	static ArrayList<GLC> gramaticas = new ArrayList<GLC>();
 	//Primer renglón
 	static String alfabetoDePila="";
@@ -24,6 +24,9 @@ public class Main<T> {
 	//S->aS S->aA etc
 	static ArrayList<String> lineasDelTXT = new ArrayList<String>();
 	static ArrayList<AP> automatasDePila = new ArrayList<AP>();
+	
+	//Pila
+	static AP aPila = new AP();
 	
 	//Símbolos terminales que salen de q0
 	static String[] simbolosTQ0;
@@ -188,8 +191,7 @@ public class Main<T> {
 		JOptionPane.showInputDialog("Por favor, dame una cadena y te diré si es aceptada");
 		String [] letrasCadena = cadena.split("");
 		
-		AP pila = new AP();
-		JOptionPane.showInputDialog(pila.recorrerAP(letrasCadena, simbolosT.length, simbolosT));
+		JOptionPane.showInputDialog(aPila.recorrerAP(letrasCadena, simbolosT.length, simbolosT));
 	}
 	
 	//mayuscula true, minuscula false
