@@ -23,7 +23,12 @@ public class AP<T> {
 		String esdoActual = ap.estadoInicial[0];
 		boolean proseguir = false;
 		if(contador == 0){
-			//Comparar con los simbolosT que salen de q0
+			//ver si están todas las letras en los dos estados
+			for(int i=0; i<ap.estadoInicial.length; i++){
+				if(ap.estadoInicial[i] == "q1") {
+					
+				}
+			}
 			
 			if(proseguir != true){
 				return "La cadena es inválida";
