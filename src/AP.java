@@ -17,7 +17,7 @@ public class AP<T> {
 				simboloPilaQueEntra + ")";
 	}
 	
-	public String recorrerAP(String[] letrasCadena, ArrayList<AP> automataPila){
+	public String recorrerAP(String[] letrasCadena, AP ap){
 		pila = new Pila(letrasCadena.length);
 		int contador = 0;
 		String esdoActual = "q0";
