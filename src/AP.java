@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class AP<T> {
 	String[] estadoInicial;
@@ -19,15 +20,15 @@ public class AP<T> {
 	
 	public String recorrerAP(String[] letrasCadena, AP ap){
 		pila = new Pila(letrasCadena.length);
-		int contador = 0;
 		String esdoActual = ap.estadoInicial[0];
 		String simboloTrans = "";
 		boolean proseguir = false, transEncontrada = false;
-		//contador = 0 es q0, contador = 1 es q1
-		if(contador == 0){
+		int contador = 0;
+		DoublyLinkedList dll;
+		while(contador< letrasCadena.length){
 			
-			if(true){
-				//
+			if(){
+				
 			}
 			
 			//ver el simbTerminal para hacer la trnsición entre estados
@@ -43,17 +44,9 @@ public class AP<T> {
 			}else{
 				
 			}
-		}else{
-			
+			++contador;
 		}
 		return "";
 	}
 	
-	public void verificarPila(String letra, boolean llenar){
-		if(llenar){
-			pila.push(letra);
-		}else{
-			pila.pop();
-		}
-	}
 }
