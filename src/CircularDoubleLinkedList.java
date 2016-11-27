@@ -281,10 +281,17 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void add(int index, T element) {
 			// TODO Auto-generated method stub
-
+		Nodo<T> x = (Nodo<T>) getTemporal(index-1);
+        Nodo<T> z = (Nodo<T>) getTemporal(index);
+        Nodo<T> y = new Nodo<T>(element, x, z);
+        x.setSiguiente(y);
+        z.setAnterior(y);
+        index++;
+        //lastAccessed = null;
 	}
 
 	@Override

@@ -111,21 +111,16 @@ public class Principal<T> {
 		System.out.println(alfabetoDePila);
 		System.out.println("q1");
 		
-		ap = new AP();
-		ap.estadoInicial = new String[g.trans.size()];
-		ap.simboloAlfabeto = new String[g.trans.size()];
-		ap.simboloPilaQueSale = new String[g.trans.size()];
-		ap.estadoSiguiente = new String[g.trans.size()];
-		ap.simboloPilaQueEntra = new String[g.trans.size()];
 		
 		for(int i = 0; i < gramaticas.size(); i++){
-			
+			ap = new AP();
+			ap.datosAP = new String[gramaticas.size()][1][1][1][1];
 			GLC g = gramaticas.get(i);
 			if(g.letra.equals(simboloNTI)){
 				for(int j = 0; j < g.trans.size();j++){
 					
-					ap.estadoInicial[j] = "q0";
-					ap.simboloPilaQueSale[j] = "lmd";
+					ap.estadoInicial = "q0";
+					ap.simboloPilaQueSale = "lmd";
 					String transicion = g.trans.get(j);
 					String letras[] = transicion.split("");
 					int contador = 0;
@@ -146,21 +141,20 @@ public class Principal<T> {
 						}
 						contador++;
 					}
-					ap.simboloPilaQueEntra[j] = simboloPil;
-					ap.simboloAlfabeto[j] = simboloAlf;
+					ap.simboloPilaQueEntra = simboloPil;
+					ap.simboloAlfabeto = simboloAlf;
 					if(simboloPil == "lmd"){
-						ap.estadoSiguiente[j] = "q0";
+						ap.estadoSiguiente = "q0";
 					}else{
-						ap.estadoSiguiente[j] = "q1";
+						ap.estadoSiguiente = "q1";
 					}
 					automatasDePila.add(ap);
 				}
 			}else{
 				for(int j = 0; j < g.trans.size();j++){
-					ap = new AP();
-					ap.estadoInicial[j] = "q1";
-					ap.estadoSiguiente[j] = "q1";
-					ap.simboloPilaQueSale[j] = g.letra;
+					ap.estadoInicial = "q1";
+					ap.estadoSiguiente = "q1";
+					ap.simboloPilaQueSale = g.letra;
 					
 					String transicion = g.trans.get(j);
 					String letras[] = transicion.split("");
@@ -180,8 +174,8 @@ public class Principal<T> {
 					if(simboloPil==""){
 						simboloPil = "lmd";
 					}
-					ap.simboloPilaQueEntra[j] = simboloPil;
-					ap.simboloAlfabeto[j] = simboloAlf;				
+					ap.simboloPilaQueEntra = simboloPil;
+					ap.simboloAlfabeto = simboloAlf;				
 					automatasDePila.add(ap);				
 				}
 			}
