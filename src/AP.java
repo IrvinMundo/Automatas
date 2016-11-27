@@ -20,16 +20,18 @@ public class AP<T> {
 	}
 	
 	public String recorrerAP(String[] letrasCadena, AP ap){
-		pila = new Pila(letrasCadena.length);
+		/*pila = new Pila(letrasCadena.length);
 		String esdoActual = ap.estadoInicial[0];
 		String simboloTrans = "";
 		boolean proseguir = false, transEncontrada = false;
 		int contador = 0;
-		CircularDoubleLinkedList<T> dll;
+		
 		while(contador < letrasCadena.length){
+			CircularDoubleLinkedList<T> dll = new CircularDoubleLinkedList<T>();
 			
 			for(int i=0 ; i<ap.simboloAlfabeto.length ; i++){
 				if(letrasCadena[contador] == ap.simboloAlfabeto[i] && !proseguir){
+					dll.addLast(ap.estadoInicial);
 					proseguir = true;
 				}
 			}
@@ -40,7 +42,7 @@ public class AP<T> {
 				
 			}
 			++contador;
-		}
+		}*/
 		return "";
 	}
 	

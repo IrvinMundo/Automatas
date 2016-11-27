@@ -111,6 +111,12 @@ public class Principal<T> {
 		System.out.println(alfabetoDePila);
 		System.out.println("q1");
 		
+		ap = new AP();
+		ap.estadoInicial = new String[g.trans.size()];
+		ap.simboloAlfabeto = new String[g.trans.size()];
+		ap.simboloPilaQueSale = new String[g.trans.size()];
+		ap.estadoSiguiente = new String[g.trans.size()];
+		ap.simboloPilaQueEntra = new String[g.trans.size()];
 		
 		for(int i = 0; i < gramaticas.size(); i++){
 			
@@ -118,7 +124,6 @@ public class Principal<T> {
 			if(g.letra.equals(simboloNTI)){
 				for(int j = 0; j < g.trans.size();j++){
 					
-					ap = new AP();
 					ap.estadoInicial[j] = "q0";
 					ap.simboloPilaQueSale[j] = "lmd";
 					String transicion = g.trans.get(j);
