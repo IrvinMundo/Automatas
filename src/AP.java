@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class AP<T> {
-	//Todos [i] irán igual pero no quiero manejar un arreglo de 5 dimensiones
-	String[] estadoInicial;
-	String[] simboloAlfabeto;
-	String[] simboloPilaQueSale;
-	String[] estadoSiguiente;
-	String[] simboloPilaQueEntra;
+	//[estadoInicial][simboloAlfabeto][simboloPilaQueSale][estadoSiguiente][simboloPilaQueEntra]
+	//[?][1][1][1][1]
+	String[][][][][] datosAP;
+	String estadoInicial;
+	String simboloAlfabeto;
+	String simboloPilaQueSale;
+	String estadoSiguiente;
+	String simboloPilaQueEntra;
 	Pila<String> pila;
 	
 	public AP() {
