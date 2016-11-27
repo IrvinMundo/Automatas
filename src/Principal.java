@@ -114,7 +114,7 @@ public class Principal<T> {
 		
 		for(int i = 0; i < gramaticas.size(); i++){
 			ap = new AP();
-			ap.datosAP = new String[gramaticas.size()][1][1][1][1];
+			
 			GLC g = gramaticas.get(i);
 			if(g.letra.equals(simboloNTI)){
 				for(int j = 0; j < g.trans.size();j++){
