@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class AP<T> {
 	//[estadoInicial][simboloAlfabeto][simboloPilaQueSale][estadoSiguiente][simboloPilaQueEntra]
@@ -10,7 +8,6 @@ public class AP<T> {
 	String estadoSiguiente;
 	String simboloPilaQueEntra;
 	Pila<String> pila;
-	CircularDoubleLinkedList<T> dll = new CircularDoubleLinkedList<T>();
 	
 	public AP() {
 		
@@ -21,10 +18,10 @@ public class AP<T> {
 				simboloPilaQueEntra + ")";
 	}
 	
-	public String recorrerAP(String[] letrasCadena, AP ap){
-		pila = new Pila(letrasCadena.length);
+	public String recorrerAP(String[] letrasCadena, AP<T> ap){
+		pila = new Pila<String>(letrasCadena.length);
 		String simboloTrans = "";
-		boolean proseguir = false, transEncontrada = false;
+		boolean proseguir = false;
 		int contador = 0;
 		
 		while(contador < letrasCadena.length){
