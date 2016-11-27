@@ -1,26 +1,37 @@
 public class Nodo<T>{
 	
-	private T dato;
+	private T simboloNT;
+	private T letraAlfabeto;
 	private Nodo<T> siguiente;
 	private Nodo<T> anterior;
 
-	public Nodo(T dato){
-		this.dato = dato;
+	public Nodo(T simboloNT, T letraAlfabeto){
+		this.simboloNT = simboloNT;
+		this.letraAlfabeto = letraAlfabeto;
 		anterior = siguiente = null;
 	}
 
-	public Nodo(T dato, Nodo<T> siguiente, Nodo<T> anterior){
-		this.dato = dato;
+	public Nodo(T simbNT, T letAlf, Nodo<T> siguiente, Nodo<T> anterior){
+		this.simboloNT = simbNT;
+		this.letraAlfabeto = letAlf;
 		this.siguiente = siguiente;	
 		this.anterior = anterior;
 	}
 
-	public T getDato(){
-		return dato;
+	public T getSimbNT(){
+		return simboloNT;
 	}
 
-	public void setDato(T dato){
-		this.dato = dato;
+	public void setSimbNT(T simbNT){
+		this.simboloNT = simbNT;
+	}
+	
+	public T getLetAlf(){
+		return letraAlfabeto;
+	}
+
+	public void setLetAlf(T letAlf){
+		this.letraAlfabeto = letAlf;
 	}
 
 	public Nodo<T> getSiguiente(){

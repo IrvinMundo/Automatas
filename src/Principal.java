@@ -111,9 +111,8 @@ public class Principal<T> {
 		System.out.println(alfabetoDePila);
 		System.out.println("q1");
 		
-		
+		ap = new AP();
 		for(int i = 0; i < gramaticas.size(); i++){
-			ap = new AP();
 			
 			GLC g = gramaticas.get(i);
 			if(g.letra.equals(simboloNTI)){

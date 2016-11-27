@@ -30,7 +30,7 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 
 		 if (index==0){
 
-		 return (T)n.getDato();
+		 return (T)n.getSimbNT();
 
 		 }else{
 
@@ -51,8 +51,8 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 	   if(nodo.getSiguiente() != inicio && index > 0){
 	       return set(nodo.getSiguiente(), index-1, element);
 	    }else{
-	        T d = (T)nodo.getDato();
-	        nodo.setDato(element);
+	        T d = (T)nodo.getSimbNT();
+	        nodo.setSimbNT(element);
 	        return d;
 	    }
 	}
@@ -64,10 +64,14 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 		while(crawler.getSiguiente() != inicio){
 			while(crawler2.getSiguiente() != inicio){
 				crawler2 = crawler2.getSiguiente();
-				if(((Comparable<T>)crawler.getDato()).compareTo(crawler2.getDato())>0){
-					T temp = crawler.getDato();
-					crawler.setDato(crawler2.getDato());
-					crawler2.setDato(temp);
+				if(((Comparable<T>)crawler.getSimbNT()).compareTo(crawler2.getSimbNT())>0){
+					T temp = crawler.getSimbNT();
+					T temp2 = crawler.getLetAlf();
+					crawler.setSimbNT(crawler2.getSimbNT());
+					crawler2.setSimbNT(temp);
+					
+					crawler.setLetAlf(crawler2.getSimbNT());
+					crawler2.setLetAlf(temp2);
 				}
 			}
 			crawler = crawler.getSiguiente();
@@ -76,17 +80,22 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 
 	@SuppressWarnings("unchecked")
 	public void insertionSort(){
-		T aux;
+		T aux, aux2;
 		Nodo <T> crawler = inicio;
 		Nodo <T> crawler2 = fin;
 		while(crawler.getSiguiente() != inicio){
-		aux = crawler.getDato();
-			while(((Comparable<T>)aux).compareTo(crawler2.getDato())<0){
+		aux = crawler.getSimbNT();
+		aux2 = crawler.getLetAlf();
+			while(((Comparable<T>)aux).compareTo(crawler2.getSimbNT())<0){
 			// desplazar elementos para hacer espacio
-				crawler2.setDato(crawler2.getAnterior().getDato());
+				crawler2.setSimbNT(crawler2.getAnterior().getSimbNT());
+				crawler2=crawler2.getAnterior();
+				
+				crawler2.setLetAlf(crawler2.getAnterior().getLetAlf());
 				crawler2=crawler2.getAnterior();
 			}
-			crawler2.setDato(aux);
+			crawler2.setSimbNT(aux);
+			crawler2.setLetAlf(aux2);
 			crawler = crawler.getSiguiente();
  		}
 	}
@@ -101,28 +110,32 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 		T pivote = getTemporal(mitad);
 		do{
 			//crawler<pivote
-			while(((Comparable<T>)crawler.getDato()).compareTo(pivote)<0){
+			while(((Comparable<T>)crawler.getSimbNT()).compareTo(pivote)<0){
 				crawler=crawler.getSiguiente();
 			}
 			//crawler2>pivote
-			while(((Comparable<T>)crawler2.getDato()).compareTo(pivote)>0){
+			while(((Comparable<T>)crawler2.getSimbNT()).compareTo(pivote)>0){
 				crawler2=crawler2.getAnterior();
 				//crawler<=crawler2
-				if(((Comparable<T>)crawler.getDato()).compareTo(crawler2.getDato())<=0){
-					T aux;
-					aux = crawler.getDato();
-					crawler.setDato(crawler2.getDato());
-					crawler2.setDato(aux);
+				if(((Comparable<T>)crawler.getSimbNT()).compareTo(crawler2.getSimbNT())<=0){
+					T aux, aux2;
+					aux = crawler.getSimbNT();
+					aux2 = crawler.getLetAlf();
+					crawler.setSimbNT(crawler2.getSimbNT());
+					crawler2.setSimbNT(aux);
+					
+					crawler.setLetAlf(crawler2.getLetAlf());
+					crawler2.setLetAlf(aux2);
 					crawler=crawler.getSiguiente();
 					crawler2=crawler2.getAnterior();
 				}
 			}
-		}while(((Comparable<T>)crawler.getDato()).compareTo(crawler2.getDato())>=0);//crawler<=crawler2
+		}while(((Comparable<T>)crawler.getSimbNT()).compareTo(crawler2.getSimbNT())>=0);//crawler<=crawler2
 		//inicio<crawler2
-		if(((Comparable<T>)crawler3.getDato()).compareTo(crawler2.getDato())<0)
+		if(((Comparable<T>)crawler3.getSimbNT()).compareTo(crawler2.getSimbNT())<0)
 			quickSort();
 		//crawler<fin
-		if(((Comparable<T>)crawler.getDato()).compareTo(crawler4.getDato())<0)
+		if(((Comparable<T>)crawler.getSimbNT()).compareTo(crawler4.getSimbNT())<0)
 			quickSort();
 	}
 
@@ -147,16 +160,14 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 		}
 	}
 
-
-	@Override
-	public void addFirst(T e) {
+	public void addFirst(T e, T i) {
 			// TODO Auto-generated method stub
 		if(isEmpty()){
-			inicio = fin  = new Nodo<T>(e);
+			inicio = fin  = new Nodo<T>(e,i);
 			inicio.setSiguiente(inicio);
 			inicio.setAnterior(inicio);
 		}else{
-			Nodo<T> nuevo = new Nodo<T>(e); //1
+			Nodo<T> nuevo = new Nodo<T>(e, i); //1
 			nuevo.setSiguiente(inicio); //2
 			nuevo.setAnterior(fin);//3
 			fin.setSiguiente(nuevo); //4
@@ -166,13 +177,12 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 
 	}
 
-	@Override
-	public void addLast(T e) {
+	public void addLast(T e, T i) {
 			// TODO Auto-generated method stub
 		 if(isEmpty()){
 			addFirst(e);
 		}else{
-			Nodo<T> nuevo = new Nodo<T>(e);
+			Nodo<T> nuevo = new Nodo<T>(e, i);
 			nuevo.setAnterior(fin);
 			nuevo.setSiguiente(inicio);
 			inicio.setAnterior(nuevo);
@@ -194,7 +204,7 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 			Nodo<T> aux = inicio;
 			if(!isEmpty()){
 				do{
-					salida += " : " + aux.getDato();
+					salida += " : " + aux.getSimbNT();
 					aux = aux.getSiguiente();
 				}while(aux != inicio);
 			}
@@ -282,12 +292,11 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 
 
 	@SuppressWarnings("unchecked")
-	@Override
-	public void add(int index, T element) {
+	public void add(int index, T element, T element2) {
 			// TODO Auto-generated method stub
 		Nodo<T> x = (Nodo<T>) getTemporal(index-1);
         Nodo<T> z = (Nodo<T>) getTemporal(index);
-        Nodo<T> y = new Nodo<T>(element, x, z);
+        Nodo<T> y = new Nodo<T>(element, element2, x, z);
         x.setSiguiente(y);
         z.setAnterior(y);
         index++;
@@ -466,9 +475,30 @@ public class CircularDoubleLinkedList<T> implements List<T>, Deque<T> {
 			y++;
 			aux = aux.getSiguiente();
 		}
-		return aux.getDato();
+		return aux.getSimbNT();
 		}else{
 			return null;
 		}
     }
+
+
+@Override
+public void addFirst(T e) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+@Override
+public void addLast(T e) {
+	// TODO Auto-generated method stub
+	
+}
+
+
+@Override
+public void add(int index, T element) {
+	// TODO Auto-generated method stub
+	
+}
  }
